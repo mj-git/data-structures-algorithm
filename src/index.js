@@ -1,3 +1,5 @@
+import Graph from "./graphs";
+
 class BinaryNode {
   constructor(data) {
     this.data = data;
@@ -42,7 +44,6 @@ class BinarySearchTree {
 
     this.traverseNode(subtree.left);
     this.traverseNode(subtree.right);
-    console.log(subtree.data);
   }
 
   findMax() {
@@ -95,9 +96,26 @@ tree.insert(2);
 tree.insert(4);
 tree.insert(20);
 
-console.log(tree);
-
 tree.traverse();
 
-console.log("Maximum node is ", tree.findMax());
-console.log("Minimum node is ", tree.findMin());
+// console.log("Maximum node is ", tree.findMax());
+// console.log("Minimum node is ", tree.findMin());
+
+var g = new Graph(6);
+var vertices = ["A", "B", "C", "D", "E", "F"];
+
+// adding vertices
+for (var i = 0; i < vertices.length; i++) {
+  g.addVertex(vertices[i]);
+}
+
+g.addEdge("A", "B");
+g.addEdge("A", "D");
+g.addEdge("A", "E");
+g.addEdge("B", "C");
+g.addEdge("D", "E");
+g.addEdge("E", "F");
+g.addEdge("E", "C");
+g.addEdge("C", "F");
+
+g.printGraph();
